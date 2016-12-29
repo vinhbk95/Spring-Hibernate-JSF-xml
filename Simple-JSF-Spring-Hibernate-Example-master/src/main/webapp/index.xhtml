@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+	<title>Process</title>
+</h:head>
+
+<body>
+
+	<h:outputText value="Simple Test"></h:outputText>
+
+	<h:form>
+
+		<h:panelGrid id="gridd" columns="9">
+			<!-- <h:outputText value="ID: " />
+			<p:inputText id="counter3" value="#{userBean.id}"></p:inputText> -->
+			<h:outputText value="Add name: " />
+			<p:inputText id="counter" value="#{userBean.name}"></p:inputText>
+			<h:outputText value="Add Surname: " />
+			<p:inputText id="counter1" value="#{userBean.surname}"></p:inputText>
+			<p:commandButton value="Add" id="btAdd" update="out"
+				actionListener="#{userBean.add}" />
+		</h:panelGrid>
+		
+		<h:panelGrid id="grid" columns="3">
+			<h:outputText value="ID: " />
+			<p:inputText id="counter3" value="#{userBean.id}"></p:inputText>
+			<p:commandButton value="Search" id="btSearch" update="out"
+				actionListener="#{userBean.searchid}" />
+		</h:panelGrid>
+		
+		<h:panelGrid id="grid1" columns="9">
+			<h:outputText value="ID: " />
+			<p:inputText id="counterr" value="#{userBean.id}"></p:inputText>
+			<h:outputText value="Name: " />
+			<p:inputText id="counterr1" value="#{userBean.name}"></p:inputText>
+			<h:outputText value="Surname: " />
+			<p:inputText id="counterr2" value="#{userBean.surname}"></p:inputText>
+			<p:commandButton value="Update" id="btUpdate" update="out"
+				actionListener="#{userBean.update}" />
+		</h:panelGrid>
+		
+		<h:panelGrid id="grids" columns="3">
+			<h:outputText value="ID: " />
+			<p:inputText id="counter3s" value="#{userBean.id}"></p:inputText>
+			<p:commandButton value="Delete" id="btDelete" update="out"
+				actionListener="#{userBean.delete}" />
+		</h:panelGrid>
+		
+		
+		<p:dataTable id="out" var="user" value="#{userBean.userlist}"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                 paginator="true" rows="10" style="margin-bottom:20px">
+			<p:column headerText="Id">
+				<h:outputText value="#{user.id}" />
+			</p:column>
+
+			<p:column headerText="Name">
+				<h:outputText value="#{user.name}" />
+			</p:column>
+
+			<p:column headerText="Surname">
+				<h:outputText value="#{user.surname}" />
+			</p:column>
+
+			
+		</p:dataTable>
+		
+	</h:form>
+
+</body>
+</html>
